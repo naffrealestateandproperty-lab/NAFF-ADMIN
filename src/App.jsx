@@ -8,7 +8,7 @@ import { TooltipProvider } from "./component/tooltip.jsx";
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import SignIn from './pages/SignIn'
 import HomePage from './pages/HomePage'
-import TenantDetails from "./component/TenantDetails"; // ✅ component
+import TenantDetails from "./component/TenantDetails"; 
 import Footer from './component/footer'
 
 function App() {

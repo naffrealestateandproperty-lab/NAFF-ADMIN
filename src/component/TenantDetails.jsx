@@ -24,19 +24,23 @@ export default function TenantDetails() {
   const r = remark.toLowerCase();
   
   if (r.includes("paid")) {
-    return "bg-emerald-100 text-emerald-700 border-emerald-200";
+    return "bg-emerald-100 text-emerald-800 border-emerald-200";
   }
-  
   if (r.includes("overdue")) {
-    return "bg-red-100 text-red-700 border-red-200";
+    return "bg-red-100 text-red-800 border-red-200";
   }
-  
+  if (r.includes("flagged")) {
+    return "bg-yellow-100 text-yellow-800 border-yellow-200";
+  }
+  if (r.includes("Evicted")) {
+    return "bg-pink-100 text-pink-800 border-pink-200";
+  }
   if (r.includes("due")) {
-    return "bg-amber-100 text-amber-700 border-amber-200";
+    return "bg-orange-100 text-orange-800 border-orange-200";
   }
-  
   return "bg-blue-50 text-blue-700 border-blue-200";
 };
+
 const handleDownload = () => {
   const doc = new jsPDF();
 
@@ -86,6 +90,17 @@ const checkReminders = (tenant) => {
 const sendMessage = (text) => {
   console.log(text); // Replace with actual email/SMS/notification logic
 };
+// const API_URL = "https://your-backend.onrender.com/api/reminders";
+
+// const sendReminder = async (tenantId) => {
+//   await fetch(`${API_URL}/${tenantId}`, {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" }
+//   });
+// };
+// <button onClick={() => sendReminder(tenant.id)}>
+//   Send Reminder
+// </button>
 
 
 
@@ -196,8 +211,8 @@ const sendMessage = (text) => {
                    <TableCell>
                      {tenant.start && tenant.end ? (
                       <div className="text-xs space-y-1">
-                        <div className="flex items-center gap-1 text-emerald-600">
-                          <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                        <div className="flex items-center gap-1 text-black-900">
+                          <div className="h-1.5 w-1.5 rounded-full bg-yellow-500" />
                           {tenant.start}
                         </div>
                         <div className="flex items-center gap-1 text-red-500">
